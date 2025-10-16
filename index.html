@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cinnamoroll Café</title>
+  <link rel="stylesheet" href="https://pyscript.net/releases/2025.7.3/core.css">
+  <script type="module" src="https://pyscript.net/releases/2025.7.3/core.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-image: url(https://i.pinimg.com/736x/a4/82/9f/a4829f0939a6ce19c4a84600050d9554.jpg);
+      background-size: cover;
+      color: #536da1;
+    }
+
+    /* 🌸 Navbar */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #93bae0;
+      padding: 12px 25px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .navbar .logo {
+      font-family: 'Brush Script MT', cursive;
+      font-size: 1.8rem;
+      color: #4b6cb7;
+      font-weight: bold;
+      text-shadow: 1px 1px #fff8f8;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #2c3e50;
+      font-weight: 600;
+      transition: 0.3s;
+      padding: 6px 12px;
+      border-radius: 10px;
+    }
+
+    .nav-links a:hover {
+      background-color: #4b6cb7;
+      color: white;
+    }
+
+    /* 🌸 Section Styles */
+    section {
+      padding: 50px 20px;
+      text-align: center;
+    }
+
+    .card {
+      background-color: #ffffff;
+      border: 3px solid #b9d7f5;
+      border-radius: 20px;
+      padding: 20px;
+      width: 60%;
+      margin: 30px auto;
+      box-shadow: 5px 5px 0 #7da2ce;
+    }
+
+    .card-header {
+      font-size: 1.3rem;
+      text-align: center;
+      color: #4b6cb7;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .order-container {
+      background-color: #ffffff;
+      border: 5px solid #b9d7f5;
+      border-radius: 20px;
+      box-shadow: 6px 6px 0 #7da2ce;
+      max-width: 500px;
+      margin: 40px auto;
+      padding: 25px;
+      text-align: center;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 8px;
+      margin: 6px 0;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+    }
+
+    button {
+      background-color: #7da2ce;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      padding: 10px 20px;
+      margin: 8px 4px;
+      cursor: pointer;
+      transition: 0.3s;
+      font-weight: bold;
+    }
+
+    button:hover {
+      background-color: #4b6cb7;
+    }
+
+    #output {
+      margin-top: 20px;
+      background-color: #f3f6fa;
+      border: 2px dashed #4b6cb7;
+      border-radius: 15px;
+      padding: 15px;
+      white-space: pre-wrap;
+      color: #333;
+    }
+
+    footer {
+      margin-top: 40px;
+      padding: 20px;
+      text-align: center;
+      background-color: #b9d7f5;
+      color: #2c3e50;
+    }
+
+    /* 🌸 Contact Section Styling */
+#contact {
+  background-color: #ffffffcc; /* soft white with transparency */
+  border: 5px solid #b9d7f5; /* pastel blue border */
+  border-radius: 25px;
+  box-shadow: 6px 6px 0 #7da2ce; /* cute shadow for depth */
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 30px;
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+}
+
+#contact h1 {
+  color: #4b6cb7;
+  font-weight: bold;
+  margin-bottom: 15px;
+  text-shadow: 1px 1px #fff;
+}
+
+#contact p {
+  margin: 6px 0;
+  color: #55637e;
+  font-size: 1.1em;
+}
+
+  </style>
+</head>
+<body>
+
+  <!-- 🌸 Navbar -->
+  <nav class="navbar">
+    <div class="logo">𝒞𝒾𝓃𝓃𝒶𝓂𝓸𝓇𝓸𝓁𝓁 𝒞𝒶𝒻𝑒</div>
+    <div class="nav-links">
+      <a href="#home">𝐇𝐨𝐦𝐞</a>
+      <a href="#order">𝐎𝐫𝐝𝐞𝐫 𝐅𝐨𝐫𝐦</a>
+      <a href="#contact">𝐂𝐨𝐧𝐭𝐚𝐜𝐭 𝐔𝐬</a>
+    </div>
+  </nav>
+
+  <!-- 🌸 Home Section -->
+  <section id="home">
+    <h1>𝒞𝒾𝓃𝓃𝒶𝓂𝓸𝓇𝓸𝓁𝓁 𝒞𝒶𝒻𝑒</h1>
+    <p>Oɯɳҽɾ: Lαυɾҽɳ Mαɾყ Vιʅʅαϝυҽɾƚҽ</p>
+    <small>🍰🍪🧁🍬🍨 1980 🥧🎂🍦🍭🍩</small>
+
+    <div class="card">
+      <div class="card-header">𝓜𝓮𝓷𝓾 𝓟𝓻𝓲𝓬𝓮𝓵𝓲𝓼𝓽</div>
+      <div class="card-body">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>𝙋𝙧𝙤𝙙𝙪𝙘𝙩 𝙉𝙖𝙢𝙚</th>
+              <th>𝑷𝒓𝒊𝒄𝒆 (₱)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>𝙲𝚒𝚗𝚗𝚊𝚖𝚘𝚛𝚘𝚕𝚕 𝙲𝚊𝚔𝚎</td><td>499.00</td></tr>
+            <tr><td>𝙱𝚊𝚗𝚊𝚗𝚊 𝙲𝚊𝚔𝚎</td><td>50.00</td></tr>
+            <tr><td>𝙲𝚑𝚒𝚌𝚔𝚎𝚗 𝚃𝚎𝚗𝚍𝚎𝚛𝚜</td><td>150.00</td></tr>
+            <tr><td>𝙸𝚌𝚎𝚍 𝚃𝚎𝚊</td><td>30.00</td></tr>
+            <tr><td>𝙲𝚒𝚗𝚗𝚊𝚖𝚘𝚛𝚘𝚕𝚕 𝙻𝚊𝚝𝚝𝚎</td><td>150.00</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <p>10AM - 11PM</p>
+    <p>Delivery Available</p>
+  </section>
+
+  <!-- ☕ Order Form Section -->
+  <section id="order">
+    <div class="order-container">
+      <h1>𝔽𝕠𝕠𝕕 𝕆𝕣𝕕𝕖𝕣𝕚𝕟𝕘 𝕊𝕪𝕤𝕥𝕖𝕞</h1>
+
+      <div class="menu">
+        <h3>Menu:</h3>
+        <label><input type="checkbox" value="Cinnamoroll Cake">𝐂𝐢𝐧𝐧𝐚𝐦𝐨𝐫𝐨𝐥𝐥 𝐂𝐚𝐤𝐞</label><br>
+        <label><input type="checkbox" value="Banana Cake">𝐁𝐚𝐧𝐚𝐧𝐚 𝐂𝐚𝐤𝐞</label><br>
+        <label><input type="checkbox" value="Chicken Tenders">𝐂𝐡𝐢𝐜𝐤𝐞𝐧 𝐓𝐞𝐧𝐝𝐞𝐫𝐬</label><br>
+        <label><input type="checkbox" value="Iced Tea">𝐈𝐜𝐞𝐝 𝐓𝐞𝐚</label><br>
+        <label><input type="checkbox" value="Cinnamoroll Latte">𝐂𝐢𝐧𝐧𝐚𝐦𝐨𝐫𝐨𝐥𝐥 𝐋𝐚𝐭𝐭𝐞</label><br>
+      </div>
+
+      <div class="details">
+        <h3>𝓒𝓾𝓼𝓽𝓸𝓶𝓮𝓻 𝓓𝓮𝓽𝓪𝓲𝓵𝓼:</h3>
+        <input id="name" type="text" placeholder="𝒩𝒶𝓂𝑒"><br>
+        <input id="address" type="text" placeholder="𝒜𝒹𝒹𝓇𝑒𝓈𝓈"><br>
+        <input id="contact" type="text" placeholder="𝒞𝑜𝓃𝓉𝒶𝒸𝓉 𝒩𝓊𝓂𝒷𝑒𝓇"><br><br>
+        <button py-click="create_order">𝕊𝕦𝕓𝕞𝕚𝕥</button>
+        <button py-click="refresh">ℝ𝕖𝕗𝕣𝕖𝕤𝕙</button>
+      </div>
+
+      <div id="output"></div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact">
+    <h1>✩░▒▓▆▅▃▂▁𝐂𝐨𝐧𝐭𝐚𝐜𝐭 𝐔𝐬▁▂▃▅▆▓▒░✩</h1>
+    <p>123 𝚂𝚠𝚎𝚎𝚝 𝚂𝚝𝚛𝚎𝚎𝚝, 𝚂𝚊𝚗𝚛𝚒𝚘 𝙲𝚒𝚝𝚢</p>
+    <p>0915-888-888</p>
+    <p>📧 𝚌𝚒𝚗𝚗𝚊𝚖𝚘𝚛𝚘𝚕𝚕𝚌𝚊𝚏𝚎@𝚎𝚖𝚊𝚒𝚕.𝚌𝚘𝚖</p>
+  </section>
+
+  <footer>© 2025 𝙲𝚒𝚗𝚗𝚊𝚖𝚘𝚛𝚘𝚕𝚕 𝙲𝚊𝚏é | 𝙼𝚊𝚍𝚎 𝚠𝚒𝚝𝚑 💙 𝚋𝚢 𝙻𝚊𝚞𝚛𝚎𝚗</footer>
+  <py-script src="main.py"></py-script>
+</body>
+</html>
